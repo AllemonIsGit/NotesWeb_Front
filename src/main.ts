@@ -1,3 +1,4 @@
+import { RegisterComponent } from './app/components/register/register.component';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
