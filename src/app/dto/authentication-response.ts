@@ -1,3 +1,3 @@
 export class AuthenticationResponse {
-    constructor(token: string, username: string, email: string) {}
+    constructor(public token: string, public username: string, public email: string) {}
 }

@@ -13,9 +13,7 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(loginDTO: LoginDTO): Observable<AuthenticationResponse> {
-    const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
 
-
-    return this.http.post<AuthenticationResponse>(this.defaultURL, loginDTO, {headers: headers});
+    return this.http.post<AuthenticationResponse>(this.defaultURL, loginDTO);
   }
 }

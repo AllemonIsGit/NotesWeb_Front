@@ -1,22 +1,29 @@
 <h1>{{ title }}</h1>
-<form #simpleForm="ngForm" (ngSubmit)="registerUser(simpleForm.value)">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div>
         <div>
-            <label>Username</label>
-            <input ngModel name="username" type="text">
+        <mat-form-field>
+            <input matInput placeholder="email" formControlName="email">
+        </mat-form-field>
         </div>
-        <label>Email</label>
-        <input ngModel name="email" type="email">
-    </div>
-    <div>
-        <label>Password</label>
-        <input ngModel name="password" type="password">
-    </div>
-    <div>
-        <label>Confirm Password</label>
-        <input ngModel name="rePassword" type="password">
-    </div>
-    <div>
-        <button>Submit</button>
+        <div>
+        <mat-form-field>
+            <input matInput placeholder="username" formControlName="username">
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+            <input type="password" matInput placeholder="password" formControlName="password">
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+            <input type="password" matInput placeholder="confirm password" formControlName="rePassword">
+        </mat-form-field>
+        </div>
+        <button mat-flat-button color="blue" [disabled]="registerForm.invalid" type="submit">Register!</button>
+        <div>
+            <a (click)="onBackToLogin()" class="links">Back to login page</a>
+        </div>
     </div>
 </form>
