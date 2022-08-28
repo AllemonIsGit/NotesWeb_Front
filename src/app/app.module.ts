@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
-import { CreateNoteComponent } from './components/note-create/create-note.component';
 import { NotesListComponent } from './components/notes-list/notes-list.component';
 import { NoteItemComponent } from './components/note-item/note-item.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,7 +20,6 @@ import { MatButtonModule } from '@angular/material/button'
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    CreateNoteComponent,
     NotesListComponent,
     NoteItemComponent,
     HomeComponent,

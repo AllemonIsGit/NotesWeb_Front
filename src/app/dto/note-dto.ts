@@ -1,5 +1,7 @@
 export class NoteDto {
+    id?: number
     title?: string
     content?: string
-    constructor(title: string, content: string) {}
+    owner?: string
+    constructor(id: number, title: string, content: string, owner: string) {}
 }

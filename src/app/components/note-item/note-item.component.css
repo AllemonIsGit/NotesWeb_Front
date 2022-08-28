@@ -1,0 +1,22 @@
+.material-icons {
+    color: rgb(255, 0, 0);
+    clear: both;
+    cursor: pointer;
+}
+
+.container {
+    margin: 8px;
+    height: auto;
+}
+
+.title {
+    float:left;
+    font-weight: 700;
+    font-size: 25px;
+    margin:auto
+}
+
+.content {
+    text-align: left;
+    margin-top: 5px;
+}

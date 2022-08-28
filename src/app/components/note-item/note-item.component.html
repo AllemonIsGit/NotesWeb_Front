@@ -1,2 +1,9 @@
-<h3>{{note.title}}</h3>
-<p>{{note.content}}</p>
+<div class="container">
+
+    <div class="title">{{note.title}}</div>
+
+    <span (click)="onDeleteEvent(note)" class="material-icons" style="color: rgb(255, 0, 0);"> delete </span>
+
+    <div class="content">{{note.content}}</div>
+
+</div>

@@ -1,2 +1,21 @@
+<h1>Create Note</h1>
+<form #simpleForm="ngForm" (ngSubmit)="create(simpleForm.value)">
+    <div>
+        <label>Title:</label>
+        <input ngModel name="title" type="text">
+    </div>
+    <div>
+        <label>Content:</label>
+        <input ngModel name="content" type="text">
+    </div>
+    <div>
+        <button>Click me</button>
+    </div>
+</form>
+
+
 <h1>Notes List</h1>
-<app-note-item *ngFor="let NoteDto of notesList" [note]="NoteDto"></app-note-item>
+<button mat-raised-button (click)="onBack()" type="button">&lt;</button>
+<button mat-raised-button (click)="onNext()" type="button">&gt;</button>
+
+<app-note-item *ngFor="let NoteDto of page.content" [note]="NoteDto" (deleteEvent)="onDeleteNote(NoteDto)"></app-note-item>
