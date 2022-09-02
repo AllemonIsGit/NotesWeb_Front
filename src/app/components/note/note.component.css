@@ -1,0 +1,36 @@
+html,body {
+    margin: 0%;
+    height: 100%;
+
+}
+
+.app {
+    background-color: pink;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 96%;
+    position: fixed;
+}
+
+.appItem {
+}
+
+.list {
+    background-color: blue;
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.panel {
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    max-height: 100%;
+    word-wrap: break-word;
+}
+
+app-note-panel {
+}

@@ -9,6 +9,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class NoteItemComponent implements OnInit {
   @Input() note: NoteDto = {}
   @Output() deleteEvent: EventEmitter<NoteDto> = new EventEmitter()
+  @Output() selectEvent: EventEmitter<NoteDto> = new EventEmitter()
 
   constructor() { }
 
@@ -17,5 +18,9 @@ export class NoteItemComponent implements OnInit {
 
   onDeleteEvent(noteDto: NoteDto) {
     this.deleteEvent.emit(noteDto)
+  }
+
+  onSelectContainer(noteDto: NoteDto) {
+    this.selectEvent.emit(noteDto)
   }
 }

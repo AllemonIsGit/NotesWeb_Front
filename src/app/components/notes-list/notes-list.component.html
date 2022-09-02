@@ -1,4 +1,5 @@
-<h1>Create Note</h1>
+<div class="all">
+    <h1>Create Note</h1>
 <form #simpleForm="ngForm" (ngSubmit)="create(simpleForm.value)">
     <div>
         <label>Title:</label>
@@ -18,4 +19,9 @@
 <button mat-raised-button (click)="onBack()" type="button">&lt;</button>
 <button mat-raised-button (click)="onNext()" type="button">&gt;</button>
 
-<app-note-item *ngFor="let NoteDto of page.content" [note]="NoteDto" (deleteEvent)="onDeleteNote(NoteDto)"></app-note-item>
+<app-note-item *ngFor="let NoteDto of page.content"
+ [note]="NoteDto"
+ (deleteEvent)="onDeleteNote(NoteDto)"
+ (selectEvent)="onSelectContainer(NoteDto)"></app-note-item>
+
+</div>

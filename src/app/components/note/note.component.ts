@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NoteDto } from 'src/app/dto/note-dto';
 
 @Component({
   selector: 'app-note',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./note.component.css']
 })
 export class NoteComponent implements OnInit {
+  @Input() selectedNote: NoteDto = {}
 
   constructor(private router: Router) { }
 
@@ -15,6 +17,10 @@ export class NoteComponent implements OnInit {
 
   onBackToLogin() {
     this.router.navigate([''])
+  }
+
+  onSelectContainer() {
+    console.log(this.selectedNote)
   }
 
 }

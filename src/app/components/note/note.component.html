@@ -1,3 +1,10 @@
-<a (click)="onBackToLogin()" class="links">Back to login page</a>
+<div (click)="onBackToLogin()" class="links">Back to login page</div>
 
-<app-notes-list></app-notes-list>
+<div class="app">
+    <div class="appItem list">
+        <app-notes-list [selectedNote]="selectedNote" (selectEvent)="onSelectContainer()"></app-notes-list>
+    </div>
+    <div class="appItem panel">
+        <app-note-panel [selectedNote]="selectedNote"></app-note-panel>
+    </div>
+</div>

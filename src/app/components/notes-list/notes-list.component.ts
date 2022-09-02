@@ -1,7 +1,7 @@
 import { Page } from './../../dto/page-dto';
 import { NoteService } from 'src/app/services/note.service';
 import { NoteDto } from 'src/app/dto/note-dto';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -10,8 +10,9 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./notes-list.component.css']
 })
 export class NotesListComponent implements OnInit {
+  @Output() selectEvent: EventEmitter<NoteDto> = new EventEmitter()
+  @Input() selectedNote: NoteDto = {}
   page: Page = new Page
-  
   currentPage: number = 0
 
   constructor(private service: NoteService) {}
@@ -60,5 +61,17 @@ export class NotesListComponent implements OnInit {
         console.log(error.message)
       }
     )
+  }
+
+  onSelectContainer(noteDto: NoteDto) {
+    this.copyNote(noteDto, this.selectedNote)
+    this.selectEvent.emit(this.selectedNote)
+  }
+
+  copyNote(from: NoteDto, to: NoteDto) {
+    to.content = from.content
+    to.id = from.id
+    to.title = from.title
+    to.owner = from.owner
   }
 }
