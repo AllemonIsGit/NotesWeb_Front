@@ -1,3 +1,9 @@
 .linkToRegister {
     
 }
+
+.loginPanel {
+    display: inline;
+    background-color: aqua;
+    margin-left: 50%;
+}

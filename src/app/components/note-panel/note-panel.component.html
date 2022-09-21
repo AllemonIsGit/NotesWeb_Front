@@ -1,8 +1,47 @@
 <div class="text">
-    <div>
+    <!-- <form>
+        <input value="{{selectedNote.title}}" type="text">
+
+        <input value="{{selectedNote.content}}" type="text">
+
+        <button (click)="onSave()" type="button"> save</button>
+    </form> -->
+
+    <!-- <form [formGroup]="noteForm" (ngSubmit)="onSave()">
+        <div>
+            <div>
+
+                <input value="{{selectedNote.title}}" type="text" matInput placeholder="title" formControlName="title">
+
+            </div>
+            <div>
+
+                <input value="{{selectedNote.content}}" type="text" matInput placeholder="content" formControlName="content">
+
+            </div>
+
+            <button mat-flat-button color="blue" type="submit">save</button>
+        </div>
+    </form> -->
+
+    <form (ngSubmit)="onSave()">
+        <div>
+            <label>Title</label>
+            <input [value]="selectedNote?.title" [formControl]="title" (change)="onChange()">
+        </div>
+        <div>
+            <label>Content</label>
+            <input formControlName="content" type="text">
+        </div>
+        <div>
+            <button>Click me</button>
+        </div>
+    </form>
+
+    <!-- <div>
         {{selectedNote.title}}
     </div>
     <div>
         {{selectedNote.content}}
-    </div>
+    </div> -->
 </div>

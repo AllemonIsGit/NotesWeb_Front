@@ -9,24 +9,22 @@ import { Injectable } from '@angular/core';
 })
 export class NoteService {
   private defaultURL: string = 'http://localhost:8080/api/v1/notes';
+  private selectedNoteCopy: NoteDto = {}
 
   constructor(private http: HttpClient) { }
 
   create(note: NoteDto): Observable<void> {
-    var token: string = `Bearer ${localStorage.getItem("accessToken") ?? ""}`
-    var header: HttpHeaders = new HttpHeaders({ "Authorization": token})
+    var header: HttpHeaders = this.fetchTokenHeader()
     return this.http.post<void>(this.defaultURL, note, { headers: header })
   }
 
   getAll(): Observable<NoteDto[]> {
-    var token: string = `Bearer ${localStorage.getItem("accessToken") ?? ""}`
-    var header: HttpHeaders = new HttpHeaders({ "Authorization": token})
+    var header: HttpHeaders = this.fetchTokenHeader()
       return this.http.get<NoteDto[]>(this.defaultURL, {headers: header})
   }
 
   getPage(page: number): Observable<Page> {
-    var token: string = `Bearer ${localStorage.getItem("accessToken") ?? ""}`
-    var header: HttpHeaders = new HttpHeaders({ "Authorization": token})
+    var header: HttpHeaders = this.fetchTokenHeader()
     return this.http.get<Page>(this.defaultURL + `?page=${page}&size=8`, {headers: header})
   }
 
@@ -34,10 +32,34 @@ export class NoteService {
     return this.http.delete<void>(this.defaultURL + `/${id}`, {headers: this.fetchTokenHeader()})
   }
 
-  fetchTokenHeader(): HttpHeaders {
+  private fetchTokenHeader(): HttpHeaders {
     var token: string = `Bearer ${localStorage.getItem("accessToken") ?? ""}`
     var header: HttpHeaders = new HttpHeaders({ "Authorization": token})
     return header
+  }
+
+  getSelectedNoteCopy() {
+    return this.selectedNoteCopy
+  }
+
+  setSelectedNoteCopy(noteDto: NoteDto) {
+    this.copyNote(noteDto, this.selectedNoteCopy)
+  }
+
+  private copyNote(from: NoteDto, to: NoteDto) {
+    to.content = from.content
+    to.id = from.id
+    to.title = from.title
+    to.owner = from.owner
+  }
+
+  compareNotes(from: NoteDto, to: NoteDto) {
+    if ((to.content = to.content) &&
+        (to.id = from.id) &&
+        (to.title = from.title) &&
+        (to.owner = from.owner)) {
+          return true
+        } else return false
   }
 
 
