@@ -19,6 +19,11 @@ export class NotesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestPage()
+    this.service.putEvent.subscribe(
+      (response: void) => {
+        this.requestPage()
+      }
+    )
   }
 
   create(note: NoteDto): void {

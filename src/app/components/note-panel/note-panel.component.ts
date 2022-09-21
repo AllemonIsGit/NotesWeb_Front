@@ -1,44 +1,39 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { NoteService } from 'src/app/services/note.service';
-import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NoteDto } from 'src/app/dto/note-dto';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-note-panel',
   templateUrl: './note-panel.component.html',
   styleUrls: ['./note-panel.component.css']
 })
-export class NotePanelComponent implements OnInit, OnChanges {
-  title = new FormControl(this.selectedNote?.title ?? "")
-  // noteForm: FormGroup = new FormGroup({
-  //   title: new FormControl(this.selectedNote.title),
-  //   content: new FormControl(this.selectedNote.content)
-  // })
+export class NotePanelComponent implements OnInit {
+  @Input() selectedNote: NoteDto = {}
 
-  constructor(noteService: NoteService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
-  }
-
-  _selectedNote: NoteDto = {}
-
-  @Input()
-  get selectedNote() {
-    return this._selectedNote
-  }
-  set selectedNote(value: NoteDto) {
-    this._selectedNote = value
-    this.title = new FormControl(value?.title ?? "")
-  }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit(): void {
   }
 
-  onSave(): void {
-    console.log(this.title.value)
+  onSave(noteDto: NoteDto): void {
+    console.log(noteDto.title)
+    console.log(noteDto.content)
+    console.log(noteDto.id)
+    this.noteService.update(noteDto).subscribe(
+      (response: void) => {
+        this.noteService.emitPutEvent()
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message)
+      }
+    )
   }
 
   onChange() {
-    console.log(this.title.value)
+    console.log()
   }
+
+
 }

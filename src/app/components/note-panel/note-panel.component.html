@@ -24,14 +24,15 @@
         </div>
     </form> -->
 
-    <form (ngSubmit)="onSave()">
+    <form #noteForm="ngForm" (ngSubmit)="onSave(noteForm.value)">
+        <input type="hidden" id="id" name="id" [(ngModel)]="selectedNote.id">
         <div>
             <label>Title</label>
-            <input [value]="selectedNote?.title" [formControl]="title" (change)="onChange()">
+            <input type="text" id="title" name="title" [(ngModel)]="selectedNote.title">
         </div>
         <div>
             <label>Content</label>
-            <input formControlName="content" type="text">
+            <input type="text" id="content" name="content" [(ngModel)]="selectedNote.content">
         </div>
         <div>
             <button>Click me</button>

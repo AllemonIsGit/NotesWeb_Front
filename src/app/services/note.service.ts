@@ -2,7 +2,7 @@ import { Page } from './../dto/page-dto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NoteDto } from './../dto/note-dto';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +10,22 @@ import { Injectable } from '@angular/core';
 export class NoteService {
   private defaultURL: string = 'http://localhost:8080/api/v1/notes';
   private selectedNoteCopy: NoteDto = {}
+  public putEvent: EventEmitter<void> = new EventEmitter()
 
   constructor(private http: HttpClient) { }
+
+  emitPutEvent() {
+    this.putEvent.emit()
+  }
 
   create(note: NoteDto): Observable<void> {
     var header: HttpHeaders = this.fetchTokenHeader()
     return this.http.post<void>(this.defaultURL, note, { headers: header })
+  }
+
+  update(note: NoteDto): Observable<void> {
+    var header: HttpHeaders = this.fetchTokenHeader()
+    return this.http.put<void>(`${this.defaultURL}/${note.id}`, note, { headers: header })
   }
 
   getAll(): Observable<NoteDto[]> {

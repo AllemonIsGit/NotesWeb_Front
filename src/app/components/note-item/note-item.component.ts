@@ -1,3 +1,4 @@
+import { NoteService } from 'src/app/services/note.service';
 import { NoteDto } from 'src/app/dto/note-dto';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class NoteItemComponent implements OnInit {
   @Output() deleteEvent: EventEmitter<NoteDto> = new EventEmitter()
   @Output() selectEvent: EventEmitter<NoteDto> = new EventEmitter()
 
-  constructor() { }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +23,6 @@ export class NoteItemComponent implements OnInit {
 
   onSelectContainer(noteDto: NoteDto) {
     this.selectEvent.emit(noteDto)
+    this.noteService.setSelectedNoteCopy(noteDto)
   }
 }
