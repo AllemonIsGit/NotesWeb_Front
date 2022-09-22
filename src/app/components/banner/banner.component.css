@@ -1,0 +1,13 @@
+.banner {
+    margin: auto;
+    width: 100%;
+    border-bottom: 0.5rem solid black;
+    padding: 0px;
+    text-align: center;
+}
+
+.logo {
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 8rem;
+}

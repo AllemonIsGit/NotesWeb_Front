@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     ])
   });
   
-  title: string = 'Register';
+  name: string = 'Register';
 
   constructor(private service: RegistrationService, private router: Router) {}
 

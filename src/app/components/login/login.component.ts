@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  title: string = 'Login';
+  name: string = 'Login';
 
   constructor(private service: LoginService, private router: Router) {}
 

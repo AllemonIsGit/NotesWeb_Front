@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Courgette);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+    height: 100%; 
+    background-color: #ffe10040;
+}
+body {
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
 
 .links {
     padding: 10px;
@@ -9,4 +15,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .links:hover {
     color: blue
+}
+
+.courgette {
+    font-family: Courgette;
 }

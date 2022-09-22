@@ -1,0 +1,18 @@
+.registerPanel {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    border: 5rem;
+}
+
+
+.title {
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.linkToLogin {
+    display: inline-flex;
+    border: 0.6rem;
+    padding: 0.6rem;
+}

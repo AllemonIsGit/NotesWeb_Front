@@ -1,22 +1,24 @@
-<h1>{{title}}</h1>
-    <div>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div>
+<div>
+    <h1 class="loginPanel title courgette">{{name}}</h1>
+        <div class="loginPanel">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div>
-                <mat-form-field>
-                    <input type="text" matInput placeholder="username" formControlName="username">
-                </mat-form-field>
-                </div>
-                <div>
-                <mat-form-field>
-                    <input type="password" matInput placeholder="password" formControlName="password">
-                </mat-form-field>
-                </div>
+                    <div>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="username" formControlName="username">
+                    </mat-form-field>
+                    </div>
+                    <div>
+                    <mat-form-field>
+                        <input type="password" matInput placeholder="password" formControlName="password">
+                    </mat-form-field>
+                    </div>
 
-                <button mat-flat-button color="blue" [disabled]="loginForm.invalid" type="submit">Log in</button>
-            </div>
+                    <button mat-flat-button color="blue" [disabled]="loginForm.invalid" type="submit">Log in</button>
+                </div>
+            </form>
             <div>
-                <a class="links" id="linkToRegister" (click)="onRegisterClick()">I'm not registered yet</a>
+                <a class="links linkToRegister courgette" (click)="onRegisterClick()">I'm not registered yet</a>
             </div>
-        </form>
-    </div>
+        </div>
+</div>

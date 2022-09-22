@@ -1,9 +1,18 @@
-.linkToRegister {
-    
+.loginPanel {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    border: 5rem;
 }
 
-.loginPanel {
-    display: inline;
-    background-color: aqua;
-    margin-left: 50%;
+
+.title {
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.linkToRegister {
+    display: inline-flex;
+    border: 1rem;
+    padding: 1rem;
 }

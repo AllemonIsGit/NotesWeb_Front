@@ -14,7 +14,8 @@ import { NoteComponent } from './components/note/note.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
-import { NotePanelComponent } from './components/note-panel/note-panel.component'
+import { NotePanelComponent } from './components/note-panel/note-panel.component';
+import { BannerComponent } from './components/banner/banner.component'
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NotePanelComponent } from './components/note-panel/note-panel.component
     HomeComponent,
     NoteComponent,
     NotePanelComponent,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,
