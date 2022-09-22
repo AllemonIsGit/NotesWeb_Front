@@ -1,3 +1,4 @@
+import { EventService } from './../../services/event.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NoteService } from 'src/app/services/note.service';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
@@ -12,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class NotePanelComponent implements OnInit {
   @Input() selectedNote: NoteDto = {}
 
-  constructor(private noteService: NoteService) { }
+  constructor(private noteService: NoteService, private eventService: EventService) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +24,7 @@ export class NotePanelComponent implements OnInit {
     console.log(noteDto.id)
     this.noteService.update(noteDto).subscribe(
       (response: void) => {
-        this.noteService.emitPutEvent()
+        this.eventService.emitPutEvent()
       },
       (error: HttpErrorResponse) => {
         console.log(error.message)

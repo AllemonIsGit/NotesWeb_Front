@@ -10,13 +10,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class NoteService {
   private defaultURL: string = 'http://localhost:8080/api/v1/notes';
   private selectedNoteCopy: NoteDto = {}
-  public putEvent: EventEmitter<void> = new EventEmitter()
 
   constructor(private http: HttpClient) { }
-
-  emitPutEvent() {
-    this.putEvent.emit()
-  }
 
   create(note: NoteDto): Observable<void> {
     var header: HttpHeaders = this.fetchTokenHeader()

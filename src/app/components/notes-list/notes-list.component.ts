@@ -1,8 +1,10 @@
+import { EventService } from './../../services/event.service';
 import { Page } from './../../dto/page-dto';
-import { NoteService } from 'src/app/services/note.service';
+
 import { NoteDto } from 'src/app/dto/note-dto';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NoteService } from 'src/app/services/note.service';
 
 @Component({
   selector: 'app-notes-list',
@@ -15,11 +17,11 @@ export class NotesListComponent implements OnInit {
   page: Page = new Page
   currentPage: number = 0
 
-  constructor(private service: NoteService) {}
+  constructor(private noteService: NoteService, private eventService: EventService) {}
 
   ngOnInit(): void {
     this.requestPage()
-    this.service.putEvent.subscribe(
+    this.eventService.putEvent.subscribe(
       (response: void) => {
         this.requestPage()
       }
@@ -27,7 +29,7 @@ export class NotesListComponent implements OnInit {
   }
 
   create(note: NoteDto): void {
-    this.service.create(note).subscribe(
+    this.noteService.create(note).subscribe(
       (response: void) => {
         this.requestPage()
       },
@@ -38,7 +40,7 @@ export class NotesListComponent implements OnInit {
   }
 
   requestPage() {
-    this.service.getPage(this.currentPage).subscribe( (notes) => (this.page = notes))
+    this.noteService.getPage(this.currentPage).subscribe( (notes) => (this.page = notes))
   }
 
   onBack(): void {
@@ -58,7 +60,7 @@ export class NotesListComponent implements OnInit {
   }
 
   onDeleteNote(noteDto: NoteDto) {
-    this.service.deleteById(noteDto.id ?? 0).subscribe(
+    this.noteService.deleteById(noteDto.id ?? 0).subscribe(
       (response: void) => {
         this.requestPage()
       },
