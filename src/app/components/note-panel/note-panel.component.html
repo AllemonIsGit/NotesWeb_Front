@@ -1,12 +1,10 @@
-<div>
+<div class="container">
     <form #noteForm="ngForm" (ngSubmit)="onSave(noteForm.value)">
         <input type="hidden" id="id" name="id" [(ngModel)]="selectedNote.id">
         <div>
-            <label class="courgette">Title</label>
             <input id="title" type="text" maxlength="45" autocomplete="off" name="title" [(ngModel)]="selectedNote.title">
         </div>
         <div>
-            <label class="courgette">Content</label>
             <textarea id="content" class="scroll" type="text" autocomplete="off" name="content" [(ngModel)]="selectedNote.content"> </textarea>
         </div>
         <div>
