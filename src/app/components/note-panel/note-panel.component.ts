@@ -32,11 +32,9 @@ export class NotePanelComponent implements OnInit {
   }
 
   onNewNote(): void {
-    this.selectedNote = {
-      id: undefined,
-      title: "Your new title",
-      content: "Your new note"
-    }
+    this.selectedNote.id = undefined
+    this.selectedNote.title = "Your new title"
+    this.selectedNote.content = "Your new note"
   }
 
   update(noteDto: NoteDto): void {
