@@ -4,11 +4,16 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EventService {
-  public putEvent: EventEmitter<void> = new EventEmitter()
+  public refreshListEvent: EventEmitter<void> = new EventEmitter()
+  public newNoteClickEvent: EventEmitter<void> = new EventEmitter()
 
   constructor() { }
 
-  emitPutEvent() {
-    this.putEvent.emit()
+  emitRefreshListEvent() {
+    this.refreshListEvent.emit()
+  }
+
+  emitNewNoteEvent() {
+    this.newNoteClickEvent.emit()
   }
 }

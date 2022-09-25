@@ -1,23 +1,8 @@
-<div class="all">
-    <h1>Create Note</h1>
-<form #simpleForm="ngForm" (ngSubmit)="create(simpleForm.value)">
-    <div>
-        <label>Title:</label>
-        <input ngModel name="title" type="text">
-    </div>
-    <div>
-        <label>Content:</label>
-        <input ngModel name="content" type="text">
-    </div>
-    <div>
-        <button>Click me</button>
-    </div>
-</form>
-
-
 <h1>Notes List</h1>
 <button mat-raised-button (click)="onBack()" type="button">&lt;</button>
 <button mat-raised-button (click)="onNext()" type="button">&gt;</button>
+
+<button id="createButton" (click)="createNoteEvent()" mat-raised-button color="blue" > Create </button>
 
 <app-note-item *ngFor="let NoteDto of page.content"
  [note]="NoteDto"

@@ -17,28 +17,21 @@ export class NotesListComponent implements OnInit {
   @Input() selectedNote: NoteDto = {}
   page: Page = new Page
   currentPage: number = 0
-  pageSize: number = 8
+  pageSize: number = 10
 
   constructor(private noteService: NoteService, private eventService: EventService, private router: Router) {}
 
   ngOnInit(): void {
     this.requestPage()
-    this.eventService.putEvent.subscribe(
+    this.eventService.refreshListEvent.subscribe(
       (response: void) => {
         this.requestPage()
       }
     )
   }
 
-  create(note: NoteDto): void {
-    this.noteService.create(note).subscribe(
-      (response: void) => {
-        this.requestPage()
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message)
-      }
-    )
+  createNoteEvent() {
+    this.eventService.emitNewNoteEvent()
   }
 
   requestPage() {

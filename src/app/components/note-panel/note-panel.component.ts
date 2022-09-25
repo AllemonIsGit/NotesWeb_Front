@@ -16,25 +16,47 @@ export class NotePanelComponent implements OnInit {
   constructor(private noteService: NoteService, private eventService: EventService) { }
 
   ngOnInit(): void {
+    this.eventService.newNoteClickEvent.subscribe(
+      (response: void)  => {
+        this.onNewNote()
+      })
   }
 
   onSave(noteDto: NoteDto): void {
     console.log(noteDto.title)
     console.log(noteDto.content)
     console.log(noteDto.id)
+    if (noteDto.id == undefined) {
+      this.create(noteDto)
+    } else this.update(noteDto)
+  }
+
+  onNewNote(): void {
+    this.selectedNote = {
+      id: undefined,
+      title: "Your new title",
+      content: "Your new note"
+    }
+  }
+
+  update(noteDto: NoteDto): void {
     this.noteService.update(noteDto).subscribe(
       (response: void) => {
-        this.eventService.emitPutEvent()
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message)
+        this.eventService.emitRefreshListEvent()
       }
     )
   }
 
-  onChange() {
-    console.log()
+  create(noteDto: NoteDto) {
+    this.noteService.create(noteDto).subscribe(
+      (response: void) => {
+        this.eventService.emitRefreshListEvent()
+      }
+    )
   }
+
+
+
 
 
 }
