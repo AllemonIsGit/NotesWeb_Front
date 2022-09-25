@@ -1,22 +1,19 @@
-.material-icons {
-    color: rgb(255, 0, 0);
-    clear: both;
-    cursor: pointer;
-}
+/* @keyframes slideRight {
+    from {padding-left: 0rem;}
+    to {padding-left: 1rem;}
+  } */
 
 .container {
     margin: 8px;
     height: auto;
     width: auto;
-    border: 2px solid black;
     cursor: pointer;
     overflow: hidden;
-
+    transition-duration: 0.25s;
 }
 
 .container:hover {
-    background-color: black;
-    color: red;
+    padding-left: 1.5rem;
 }
 
 .title {

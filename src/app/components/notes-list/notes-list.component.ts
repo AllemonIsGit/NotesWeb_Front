@@ -17,7 +17,7 @@ export class NotesListComponent implements OnInit {
   @Input() selectedNote: NoteDto = {}
   page: Page = new Page
   currentPage: number = 0
-  pageSize: number = 10
+  pageSize: number = 12
 
   constructor(private noteService: NoteService, private eventService: EventService, private router: Router) {}
 

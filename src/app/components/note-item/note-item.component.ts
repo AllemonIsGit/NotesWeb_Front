@@ -17,10 +17,6 @@ export class NoteItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDeleteEvent(noteDto: NoteDto) {
-    this.deleteEvent.emit(noteDto)
-  }
-
   onSelectContainer(noteDto: NoteDto) {
     this.selectEvent.emit(noteDto)
     this.noteService.setSelectedNoteCopy(noteDto)

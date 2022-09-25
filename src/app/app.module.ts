@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { NotePanelComponent } from './components/note-panel/note-panel.component';
 import { BannerComponent } from './components/banner/banner.component'
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BannerComponent } from './components/banner/banner.component'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   //defaul was bootstrap: [AppComponent]

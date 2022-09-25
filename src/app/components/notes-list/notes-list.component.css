@@ -1,3 +1,21 @@
 #createButton {
     margin-left: 45%;
 }
+#createButton:hover {
+    background-color: rgb(209, 209, 209);
+}
+
+.fa-home:before {
+    content:"\f015"
+   }
+
+.backToLogin {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    margin-right: 0.5rem;
+}

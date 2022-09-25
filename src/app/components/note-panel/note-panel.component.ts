@@ -31,6 +31,17 @@ export class NotePanelComponent implements OnInit {
     } else this.update(noteDto)
   }
 
+  onDelete(id: number) {
+    if (id == undefined) {
+      return
+    }
+    this.noteService.deleteById(id).subscribe(
+      (response: void) => {
+        this.eventService.emitRefreshListEvent()
+      }
+    )
+  }
+
   onNewNote(): void {
     this.selectedNote.id = undefined
     this.selectedNote.title = "Your new title"

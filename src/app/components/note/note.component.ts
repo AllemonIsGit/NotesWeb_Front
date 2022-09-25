@@ -16,7 +16,6 @@ export class NoteComponent implements OnInit {
   }
 
   onSelectContainer() {
-    console.log(this.selectedNote)
   }
 
 }
