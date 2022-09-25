@@ -28,9 +28,9 @@ export class NoteService {
       return this.http.get<NoteDto[]>(this.defaultURL, {headers: header})
   }
 
-  getPage(page: number): Observable<Page> {
+  getPage(page: number, size: number): Observable<Page> {
     var header: HttpHeaders = this.fetchTokenHeader()
-    return this.http.get<Page>(this.defaultURL + `?page=${page}&size=8`, {headers: header})
+    return this.http.get<Page>(this.defaultURL + `?page=${page}&size=${size}`, {headers: header})
   }
 
   deleteById(id: number): Observable<void> {

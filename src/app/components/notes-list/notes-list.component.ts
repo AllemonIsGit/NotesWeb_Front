@@ -17,6 +17,7 @@ export class NotesListComponent implements OnInit {
   @Input() selectedNote: NoteDto = {}
   page: Page = new Page
   currentPage: number = 0
+  pageSize: number = 8
 
   constructor(private noteService: NoteService, private eventService: EventService, private router: Router) {}
 
@@ -41,7 +42,7 @@ export class NotesListComponent implements OnInit {
   }
 
   requestPage() {
-    this.noteService.getPage(this.currentPage).subscribe( (notes) => (this.page = notes))
+    this.noteService.getPage(this.currentPage, this.pageSize).subscribe( (notes) => (this.page = notes))
   }
 
   onBack(): void {
@@ -53,7 +54,7 @@ export class NotesListComponent implements OnInit {
   }
 
   onNext(): void {
-    if (this.page.content?.length != 8) {
+    if (this.page.content?.length != this.pageSize) {
       return
     }
     this.currentPage = this.currentPage + 1
