@@ -7,9 +7,11 @@
 .container {
     margin: 8px;
     height: auto;
-    background-color: aqua;
-    width: 500px;
+    width: auto;
+    border: 2px solid black;
     cursor: pointer;
+    overflow: hidden;
+
 }
 
 .container:hover {

@@ -5,6 +5,7 @@ import { NoteDto } from 'src/app/dto/note-dto';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NoteService } from 'src/app/services/note.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notes-list',
@@ -17,7 +18,7 @@ export class NotesListComponent implements OnInit {
   page: Page = new Page
   currentPage: number = 0
 
-  constructor(private noteService: NoteService, private eventService: EventService) {}
+  constructor(private noteService: NoteService, private eventService: EventService, private router: Router) {}
 
   ngOnInit(): void {
     this.requestPage()
@@ -80,5 +81,9 @@ export class NotesListComponent implements OnInit {
     to.id = from.id
     to.title = from.title
     to.owner = from.owner
+  }
+
+  onBackToLogin() {
+    this.router.navigate([''])
   }
 }

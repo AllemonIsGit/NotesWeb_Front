@@ -1,48 +1,16 @@
-<div class="text">
-    <!-- <form>
-        <input value="{{selectedNote.title}}" type="text">
-
-        <input value="{{selectedNote.content}}" type="text">
-
-        <button (click)="onSave()" type="button"> save</button>
-    </form> -->
-
-    <!-- <form [formGroup]="noteForm" (ngSubmit)="onSave()">
-        <div>
-            <div>
-
-                <input value="{{selectedNote.title}}" type="text" matInput placeholder="title" formControlName="title">
-
-            </div>
-            <div>
-
-                <input value="{{selectedNote.content}}" type="text" matInput placeholder="content" formControlName="content">
-
-            </div>
-
-            <button mat-flat-button color="blue" type="submit">save</button>
-        </div>
-    </form> -->
-
+<div>
     <form #noteForm="ngForm" (ngSubmit)="onSave(noteForm.value)">
         <input type="hidden" id="id" name="id" [(ngModel)]="selectedNote.id">
         <div>
-            <label>Title</label>
-            <input type="text" id="title" name="title" [(ngModel)]="selectedNote.title">
+            <label class="courgette">Title</label>
+            <input id="title" type="text" maxlength="45" autocomplete="off" name="title" [(ngModel)]="selectedNote.title">
         </div>
         <div>
-            <label>Content</label>
-            <input type="text" id="content" name="content" [(ngModel)]="selectedNote.content">
+            <label class="courgette">Content</label>
+            <textarea id="content" class="scroll" type="text" autocomplete="off" name="content" [(ngModel)]="selectedNote.content"> </textarea>
         </div>
         <div>
-            <button>Click me</button>
+            <button class="saveButton" mat-raised-button color="blue">Save</button>
         </div>
     </form>
-
-    <!-- <div>
-        {{selectedNote.title}}
-    </div>
-    <div>
-        {{selectedNote.content}}
-    </div> -->
 </div>

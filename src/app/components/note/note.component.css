@@ -5,7 +5,6 @@ html,body {
 }
 
 .app {
-    background-color: pink;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -18,14 +17,13 @@ html,body {
 }
 
 .list {
-    background-color: blue;
-    width: 30%;
+    width: 29%;
     height: 100%;
     float: left;
+    border-right: 0.5rem solid black;
 }
 
 .panel {
-    background-color: #ffff00;
     width: 70%;
     height: 100%;
     text-align: center;
@@ -34,5 +32,3 @@ html,body {
     overflow: auto;
 }
 
-app-note-panel {
-}

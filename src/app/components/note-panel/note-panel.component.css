@@ -1,3 +1,34 @@
-.text {
+/* .text {
     display: inline-flex;
+} */
+
+input, input:focus, textarea, textarea:focus {
+    background: transparent;
+    border: 0px;
+    outline: none;
+    font-family: Courgette;
+}
+
+#title {
+    width: 100%;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+#content {
+    width: 100%;
+    height: 60vh;
+    padding-bottom: auto;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    overflow: scroll;
+    min-height: 40%;
+    resize: none;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
 }

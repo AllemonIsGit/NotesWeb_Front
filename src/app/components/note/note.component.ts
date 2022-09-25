@@ -15,10 +15,6 @@ export class NoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onBackToLogin() {
-    this.router.navigate([''])
-  }
-
   onSelectContainer() {
     console.log(this.selectedNote)
   }
