@@ -1,12 +1,14 @@
-<h1 class="courgette">Notes List</h1>
-<button mat-raised-button (click)="onBack()" type="button">&lt;</button>
-<button mat-raised-button (click)="onNext()" type="button">&gt;</button>
+<div class="container">
+    <h1 class="courgette">Notes List</h1>
+    <button mat-raised-button (click)="onBack()" type="button">&lt;</button>
+    <button mat-raised-button (click)="onNext()" type="button">&gt;</button>
 
-<button id="createButton" (click)="createNoteEvent()" mat-raised-button color="blue"> Create </button>
+    <app-note-item *ngFor="let NoteDto of page.content" [note]="NoteDto" (deleteEvent)="onDeleteNote(NoteDto)"
+        (selectEvent)="onSelectContainer(NoteDto)"></app-note-item>
 
-<app-note-item *ngFor="let NoteDto of page.content" [note]="NoteDto" (deleteEvent)="onDeleteNote(NoteDto)"
-    (selectEvent)="onSelectContainer(NoteDto)"></app-note-item>
+    <button mat-raised-button (click)="onBackToLogin()" class="links backToLogin">
+        <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Back to login page
+    </button>
 
-<button mat-raised-button (click)="onBackToLogin()" class="links backToLogin">
-    <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Back to login page
-</button>
+    <button id="createButton" (click)="createNoteEvent()" mat-raised-button color="blue"> Create </button>
+</div>
