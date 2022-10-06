@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         }
       },
       (error: HttpErrorResponse) => {
-        console.log(error.message);
+        alert(error.message);
       }
     );
   }
@@ -49,6 +49,6 @@ export class LoginComponent implements OnInit {
     this.login(this.loginForm?.value);
   }
   onRegisterClick() {
-    this.router.navigate(['/register'])
+    this.router.navigate(['/register']);
   }
 }
