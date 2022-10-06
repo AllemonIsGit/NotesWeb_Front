@@ -8,7 +8,7 @@ import { Injectable, EventEmitter } from '@angular/core';
   providedIn: 'root'
 })
 export class NoteService {
-  private defaultURL: string = 'http://localhost:8080/api/v1/notes';
+  private defaultURL: string = 'http://34.88.79.112:8080/api/v1/notes';
   private selectedNoteCopy: NoteDto = {}
 
   constructor(private http: HttpClient) { }

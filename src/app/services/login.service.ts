@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LoginService {
-  private defaultURL: string = 'http://localhost:8080/api/v1/auth/login';
+  private defaultURL: string = 'http://34.88.79.112:8080/api/v1/auth/login';
 
   constructor(private http: HttpClient) {}
 

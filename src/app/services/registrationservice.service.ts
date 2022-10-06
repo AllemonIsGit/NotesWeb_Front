@@ -7,7 +7,7 @@ import { RegisterDTO } from '../dto/register-dto';
   providedIn: 'root'
 })
 export class RegistrationService {
-  private defaultUrl: string = "http://localhost:8080/api/v1/auth"
+  private defaultUrl: string = "http://34.88.79.112:8080/api/v1/auth"
 
   constructor(private http: HttpClient) { }
 
