@@ -1,4 +1,4 @@
-# <p>NotesWeb</p>
+# <p>NotesWeb Client</p>
 <p>Your everyday notebook, but on the web.</p>
 
 <p>This repository is a client for my portfolio project.<p/>
